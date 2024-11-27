@@ -19,6 +19,7 @@ runs:
 3. Confirmar los cambios y hacer push del código. Tómate unos momentos para entender la sintaxis de la composite custom action y las similitudes y diferencias con los steps de job. Por ahora no pasará nada, ya que esta acción personalizada no se utiliza en ningún flujo de trabajo, así que pasemos al siguiente ejercicio donde crearemos nuestro flujo de trabajo!
 
 
+
 4. Modificar el fichero workflow.yml:
    - Nombrar el flujo de trabajo 11 Custom Actions - Composite.
    - desencadenantes:
