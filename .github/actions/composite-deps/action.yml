@@ -1,0 +1,32 @@
+name: "Node.js Build and Test"
+description: "Set up Node.js environment, install dependencies, and run unit tests."
+inputs:
+  node-version:
+    description: "Node.js version to use (e.g., 20.x)"
+    required: true
+  working-directory:
+    description: "Working directory for the action"
+    required: false
+    default: "./"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Working Directory
+      run: echo "Setting working directory to ${{ inputs.working-directory }}"
+      shell: bash
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: Install Dependencies
+      run: npm ci
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+
+    - name: Run Unit Tests
+      run: npm run test
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
